@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>PracticaDigitalBuho</title>
+    <script>
+        function sololetras(e){
+            key=e.keyCode || e.which;
+
+            teclado=String.fromCharCode(key).toLowerCase();
+            letras="abcdefghijklmnñopqrstuvwxyz";
+            especiales="8-37-38-46-164";
+            teclado_especial=false;
+            for(var i in especiales){
+                if(key==especiales[i]){
+                    teclado_especial=true;break;
+                }
+            }
+            if(letras.indexOf(teclado)==-1 && !teclado_especial){
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="center">
+        <h1></h1>
+        <form method="post">
+            <div class="txt_field">
+                <label>Username</label>
+                <input type="text" name="letras" onkeypress="return sololetras(event)" placeholder="Username" required >
+
+            </div>
+            <p></p>
+            <div class="txt_field">
+                <label>Email</label>
+                <input type="email" placeholder="Example@gmail.com" required>
+            </div>
+            <p></p>
+            <div class="txt_field">
+                <label for="number">Número random</label>
+                <input type="text" id="inputRandom" value="loading..." readonly>
+ 
+            </div>
+            <p></p>
+            <button class="buton">SEND FEEDBACK</button>
+        </form>
+    </div>
+
+    
+    <script src="jv.js"></script>
+</body>
+</html>
